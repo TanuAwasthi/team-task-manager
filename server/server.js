@@ -30,11 +30,18 @@ app.get('/api/health', (req, res) => {
   res.status(200).json({ message: 'Server is running' });
 });
 
-app.use(errorHandler);
+const __dirname = path.resolve();
+const clientBuildPath = path.join(__dirname, '../client/build');
+app.use(express.static(clientBuildPath));
 
-app.use((req, res) => {
-  res.status(404).json({ message: 'Route not found' });
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api/')) {
+    return res.status(404).json({ message: 'Route not found' });
+  }
+  res.sendFile(path.join(clientBuildPath, 'index.html'));
 });
+
+app.use(errorHandler);
 
 const startServer = async () => {
   try {
