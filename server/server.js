@@ -29,7 +29,7 @@ app.get('/api/health', (req, res) => {
 });
 
 const __dirname = path.resolve();
-const clientBuildPath = path.join(__dirname, '../client/build');
+const clientBuildPath = path.join(__dirname, 'public');
 app.use(express.static(clientBuildPath));
 
 app.get('*', (req, res) => {
