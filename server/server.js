@@ -45,6 +45,7 @@ app.get('/api/health', (req, res) => {
 //   }
 //   res.sendFile(path.join(clientBuildPath, 'index.html'));
 // });
+
 app.get('/', (req, res) => {
   res.send('API is running');
 });
