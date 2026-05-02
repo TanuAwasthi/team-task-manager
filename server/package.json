@@ -9,6 +9,7 @@
     "build": "echo 'no build needed'",
     "dev": "nodemon server.js"
   },
+  "postinstall": "cd ../client && npm install && npm run build",
   "keywords": [
     "mern",
     "task",
