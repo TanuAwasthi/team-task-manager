@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = process.env.REACT_APP_API_URL ? `${process.env.REACT_APP_API_URL}/api` : '/api';
-
+const API_BASE = "https://team-task-manager-production-c58c.up.railway.app/api";
 const api = axios.create({
   baseURL: API_BASE,
   headers: {
